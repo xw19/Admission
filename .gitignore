@@ -11,6 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-/config/database.yml
-/config/secets.yml
-/public/uploads
+config/database.yml
+config/secets.yml
+public/uploads
