@@ -35,18 +35,18 @@ ActiveRecord::Schema.define(version: 20150410111413) do
   add_index "candidates", ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true, using: :btree
 
   create_table "castewise_marks", force: :cascade do |t|
-    t.integer  "caste_marks_id"
-    t.string   "caste_marks_type"
+    t.integer  "caste_mark_id"
+    t.string   "caste_mark_type"
     t.integer  "gen"
     t.integer  "sc"
     t.integer  "st"
     t.integer  "obca"
     t.integer  "obcb"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "castewise_marks", ["caste_marks_type", "caste_marks_id"], name: "index_castewise_marks_on_caste_marks_type_and_caste_marks_id", using: :btree
+  add_index "castewise_marks", ["caste_mark_type", "caste_mark_id"], name: "index_castewise_marks_on_caste_mark_type_and_caste_mark_id", using: :btree
 
   create_table "personals", force: :cascade do |t|
     t.integer  "candidate_id"

@@ -1,7 +1,7 @@
 class CreateCastewiseMarks < ActiveRecord::Migration
   def change
     create_table :castewise_marks do |t|
-      t.references :caste_marks, polymorphic: true, index: true
+      t.references :caste_mark, polymorphic: true, index: true
       t.integer :gen
       t.integer :sc
       t.integer :st
