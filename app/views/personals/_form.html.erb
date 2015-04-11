@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="medium-10 medium-offset-1 columns">
+    <%= simple_form_for @personal do |f| %>
+    <div class="row">
+      <%= f.input :first_name, wrapper_html: { class: 'medium-4 columns'} %>
+      <%= f.input :middle_name, wrapper_html: { class: 'medium-4 columns'} %>
+      <%= f.input :last_name, wrapper_html: { class: 'medium-4 columns'} %>
+    </div>
+    <div class="row">
+      <%= f.input :fathers_name, wrapper_html: { class: 'medium-6 columns'} %>
+      <%= f.input :mothers_name, wrapper_html: { class: 'medium-6 columns'} %>
+    </div>
+    <div class="row">
+      <%= f.input :date_of_birth, as: :string, input_html: { class: "fdatepicker"}, wrapper_html: { class: 'medium-6 columns'} %>
+      <%= f.input :gender, collection: %w(Male Female Others), wrapper_html: { class: 'medium-6 columns'} %>
+    </div>
+    <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+<script>
+  $('.fdatepicker').fdatepicker();
+</script>

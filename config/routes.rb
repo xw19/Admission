@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'static_page#home'
+  get 'static_page/contact'
+  get 'static_page/help'
+  get 'static_page/about'
+  resources :personals, except: [:index, :destroy]
+  devise_for :candidates
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
