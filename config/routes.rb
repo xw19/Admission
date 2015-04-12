@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'static_page/about'
   resources :personals, except: [:index, :destroy]
   resources :streams
+  resources :candidate_streams
   devise_for :candidates
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

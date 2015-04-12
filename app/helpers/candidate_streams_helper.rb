@@ -1,0 +1,2 @@
+module CandidateStreamsHelper
+end

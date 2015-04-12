@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412034510) do
+ActiveRecord::Schema.define(version: 20150412144758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidate_streams", force: :cascade do |t|
+    t.integer  "stream_id"
+    t.integer  "candidate_id"
+    t.boolean  "requirements"
+    t.boolean  "verified"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "candidate_streams", ["candidate_id"], name: "index_candidate_streams_on_candidate_id", using: :btree
+  add_index "candidate_streams", ["stream_id"], name: "index_candidate_streams_on_stream_id", using: :btree
+
+  create_table "candidate_subjects", force: :cascade do |t|
+    t.integer  "required_subject_id"
+    t.integer  "candidate_id"
+    t.integer  "candidate_stream_id"
+    t.integer  "marks"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "candidate_subjects", ["candidate_id"], name: "index_candidate_subjects_on_candidate_id", using: :btree
+  add_index "candidate_subjects", ["candidate_stream_id"], name: "index_candidate_subjects_on_candidate_stream_id", using: :btree
+  add_index "candidate_subjects", ["required_subject_id"], name: "index_candidate_subjects_on_required_subject_id", using: :btree
 
   create_table "candidates", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -78,6 +103,11 @@ ActiveRecord::Schema.define(version: 20150412034510) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "candidate_streams", "candidates"
+  add_foreign_key "candidate_streams", "streams"
+  add_foreign_key "candidate_subjects", "candidate_streams"
+  add_foreign_key "candidate_subjects", "candidates"
+  add_foreign_key "candidate_subjects", "required_subjects"
   add_foreign_key "personals", "candidates"
   add_foreign_key "required_subjects", "streams"
 end

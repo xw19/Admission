@@ -5,4 +5,6 @@ class Candidate < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :personal, dependent: :destroy
+  has_one :candidate_stream, dependent: :destroy
+  has_many :candidate_subjects, dependent: :destroy
 end
