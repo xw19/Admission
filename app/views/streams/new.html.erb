@@ -7,5 +7,15 @@
      <%= cm.input :obca %>
      <%= cm.input :obcb %>
   <% end %>
+  <%= f.simple_fields_for :required_subjects do |rs| %>
+    <%= rs.input :subject_name %>
+    <%= rs.simple_fields_for :castewise_mark do |cm| %>
+       <%= cm.input :gen %>
+       <%= cm.input :sc%>
+       <%= cm.input :st %>
+       <%= cm.input :obca %>
+       <%= cm.input :obcb %>
+    <% end %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
