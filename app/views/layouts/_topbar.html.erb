@@ -12,8 +12,8 @@
       <% end %>
         <li class="has-dropdown"> <a href="#">Right Button Dropdown</a>
         <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
           <% if candidate_signed_in? %>
+            <li><%= link_to "Edit registration",  edit_candidate_registration_path %></li>
             <li class="active"><%= link_to "Logout", destroy_candidate_session_path, method: 'delete' %></li>
           <% end %>
         </ul>
