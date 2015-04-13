@@ -3,6 +3,7 @@ class PersonalsController < ApplicationController
 
   def new
     @personal = Personal.new
+    2.times { @personal.addresses.build }
   end
 
   def create
@@ -39,7 +40,10 @@ class PersonalsController < ApplicationController
   private
 
   def personal_params
-    params.require(:personal).permit(:first_name, :last_name, :middle_name, :date_of_birth, :gender, :fathers_name, :mothers_name)
+    params.require(:personal).permit(:first_name, :last_name, :middle_name, :date_of_birth,
+                                      :gender, :fathers_name, :mothers_name,
+                                      addresses_attributes: [:id, :line1, :line2, :city_village,
+                                        :district, :state, :country, :pin, :phone, :mobile])
   end
 
 end

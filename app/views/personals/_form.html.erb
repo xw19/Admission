@@ -14,6 +14,25 @@
       <%= f.input :date_of_birth, as: :string, input_html: { class: "fdatepicker"}, wrapper_html: { class: 'medium-6 columns'} %>
       <%= f.input :gender, collection: %w(Male Female Others), wrapper_html: { class: 'medium-6 columns'} %>
     </div>
+    <%= f.simple_fields_for :addresses do |ad| %>
+      <h6>Address <%= ad.options[:child_index] + 1 %></h6>
+      <div class="row">
+        <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'} %>
+        <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'} %>
+      </div>
+      <div class="row">
+        <%= ad.input :city_village, wrapper_html: { class: 'medium-6 columns'} %>
+        <%= ad.input :state, wrapper_html: { class: 'medium-6 columns'} %>
+      </div>
+      <div class="row">
+        <%= ad.input :country, as: :string, wrapper_html: { class: 'medium-6 columns'} %>
+        <%= ad.input :pin, wrapper_html: { class: 'medium-6 columns'} %>
+      </div>
+      <div class="row">
+        <%= ad.input :phone, wrapper_html: { class: 'medium-6 columns'} %>
+        <%= ad.input :mobile, wrapper_html: { class: 'medium-6 columns'} %>
+      </div>
+    <% end %>
     <%= f.button :submit %>
     <% end %>
   </div>

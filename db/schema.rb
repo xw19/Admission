@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413125302) do
+ActiveRecord::Schema.define(version: 20150413141743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer  "personal_id"
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "city_village"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "pin"
+    t.string   "phone"
+    t.string   "mobile"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "addresses", ["personal_id"], name: "index_addresses_on_personal_id", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -120,6 +137,7 @@ ActiveRecord::Schema.define(version: 20150413125302) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "addresses", "personals"
   add_foreign_key "candidate_streams", "candidates"
   add_foreign_key "candidate_streams", "streams"
   add_foreign_key "candidate_subjects", "candidate_streams"
