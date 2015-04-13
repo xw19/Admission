@@ -16,4 +16,15 @@ RSpec.describe Personal, type: :model do
     personal = FactoryGirl.build(:personal, middle_name: 'a' * 21)
     expect(personal).not_to be_valid
   end
+
+  it "last name should be present" do
+    personal = FactoryGirl.build(:personal, last_name: '')
+    expect(personal).not_to be_valid
+  end
+
+  it "last name should not be too long" do
+    personal = FactoryGirl.build(:personal, last_name: 'a' * 21)
+    expect(personal).not_to be_valid
+  end
+
 end

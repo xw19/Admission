@@ -20,4 +20,14 @@ class PersonalTest < ActiveSupport::TestCase
     @personal.middle_name = "a" * 21
     assert_not @personal.valid?
   end
+
+  test "last name should be present" do
+    @personal.last_name = ""
+    assert_not @personal.valid?
+  end
+
+  test "last name should not be too long" do
+    @personal.last_name = "a" * 21
+    assert_not @personal.valid?
+  end
 end
