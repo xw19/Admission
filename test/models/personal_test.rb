@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class PersonalTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @personal = personals(:one)
+  end
+
+  test "personal should be valid" do
+    @personal.first_name = ""
+    assert_not @personal.valid?
+  end
 end
