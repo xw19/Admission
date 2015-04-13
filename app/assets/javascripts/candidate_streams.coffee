@@ -11,7 +11,6 @@ $ ->
       data: { stream: $(".stream").val() }
     }
     request.done (msg) ->
-      # alert $(msg).find ".candidate_form_contents"
       $('.form-container').html $(msg).find ".candidate_form_contents"
     request.fail (xhr, status) ->
-      alert("Some error " + status)
+      alert("Some error")

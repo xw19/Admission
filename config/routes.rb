@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :personals, except: [:index, :destroy]
   resources :streams
-  resources :candidate_streams
+  resources :candidate_streams, only: [:new, :create]
   devise_for :candidates
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
