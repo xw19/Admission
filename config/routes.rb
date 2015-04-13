@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'static_page/contact'
   get 'static_page/help'
   get 'static_page/about'
+  post 'candidate_streams/form_fields'
+
   resources :personals, except: [:index, :destroy]
   resources :streams
   resources :candidate_streams

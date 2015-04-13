@@ -1,4 +1,12 @@
-<%= simple_form_for @candidate_stream do |f|%>
-  <%= f.association :stream %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <div class="medium-10 medium-offset-1 columns">
+    <%= simple_form_for @candidate_stream do |f|%>
+      <%= f.association :stream, input_html: { class: 'stream'} %>
+      <div class="form-container">
+      </div>
+      <div class="form-partial">
+      </div>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

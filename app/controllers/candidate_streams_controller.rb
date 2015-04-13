@@ -15,19 +15,15 @@ class CandidateStreamsController < ApplicationController
     end
   end
 
-  def edit
-    @candidate_stream = current_candidate.candidate_stream
-  end
-
-  def update
-  end
-
-  def destroy
+  def form_fields
+    @stream = Stream.find(params[:stream])
+    @candidate_stream = CandidateStream.new
+    render 'candidate_streams/form'
   end
 
   private
 
   def candidate_stream_params
-    params.require(:candidate_stream).permit(:stream_id)
+    params.require(:candidate_stream).permit(:stream_id, candidate_subjects_attributes: [:id, :candiate_id, :required_subject_id, :marks])
   end
 end

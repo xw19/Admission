@@ -1,0 +1,10 @@
+<%= simple_form_for @candidate_stream do |f| %>
+  <div class="candidate_form_contents">
+    <% @stream.required_subjects.each do |sub| %>
+      <%= f.simple_fields_for :candidate_subjects, @candidate_stream.candidate_subjects.build do |cs| %>
+        <%= cs.input :required_subject_id, as: :hidden, input_html: {value: sub.id}%>
+        <%= cs.input :marks, label: "Marks of #{sub.subject_name}" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
