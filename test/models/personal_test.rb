@@ -30,4 +30,9 @@ class PersonalTest < ActiveSupport::TestCase
     @personal.last_name = "a" * 21
     assert_not @personal.valid?
   end
+
+  test "date of birth should be present" do
+    @personal.date_of_birth = ""
+    assert_not @personal.valid?
+  end
 end

@@ -27,4 +27,9 @@ RSpec.describe Personal, type: :model do
     expect(personal).not_to be_valid
   end
 
+  it "date of birth should be present" do
+    personal = FactoryGirl.build(:personal, date_of_birth: "")
+    expect(personal).not_to be_valid
+  end
+  
 end

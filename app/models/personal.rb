@@ -5,5 +5,5 @@ class Personal < ActiveRecord::Base
   validates :first_name, presence: true, length: { maximum: 20 }
   validates :middle_name, length: { maximum: 20 }
   validates :last_name,presence: true, length: { maximum: 20 }
-
+  validates :date_of_birth, presence: true
 end
