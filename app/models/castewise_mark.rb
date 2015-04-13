@@ -1,3 +1,3 @@
 class CastewiseMark < ActiveRecord::Base
-  belongs_to :caste_mark, polymorphic: true
+  belongs_to :required_subject
 end

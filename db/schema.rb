@@ -78,18 +78,17 @@ ActiveRecord::Schema.define(version: 20150413125302) do
   add_index "candidates", ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true, using: :btree
 
   create_table "castewise_marks", force: :cascade do |t|
-    t.integer  "caste_mark_id"
-    t.string   "caste_mark_type"
+    t.integer  "required_subject_id"
     t.integer  "gen"
     t.integer  "sc"
     t.integer  "st"
     t.integer  "obca"
     t.integer  "obcb"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "castewise_marks", ["caste_mark_type", "caste_mark_id"], name: "index_castewise_marks_on_caste_mark_type_and_caste_mark_id", using: :btree
+  add_index "castewise_marks", ["required_subject_id"], name: "index_castewise_marks_on_required_subject_id", using: :btree
 
   create_table "personals", force: :cascade do |t|
     t.integer  "candidate_id"
@@ -126,6 +125,7 @@ ActiveRecord::Schema.define(version: 20150413125302) do
   add_foreign_key "candidate_subjects", "candidate_streams"
   add_foreign_key "candidate_subjects", "candidates"
   add_foreign_key "candidate_subjects", "required_subjects"
+  add_foreign_key "castewise_marks", "required_subjects"
   add_foreign_key "personals", "candidates"
   add_foreign_key "required_subjects", "streams"
 end

@@ -1,21 +1,22 @@
-<%= simple_form_for @stream do |f| %>
-  <%= f.input :name %>
-  <%= f.simple_fields_for :castewise_mark do |cm| %>
-     <%= cm.input :gen %>
-     <%= cm.input :sc%>
-     <%= cm.input :st %>
-     <%= cm.input :obca %>
-     <%= cm.input :obcb %>
-  <% end %>
-  <%= f.simple_fields_for :required_subjects do |rs| %>
-    <%= rs.input :subject_name %>
-    <%= rs.simple_fields_for :castewise_mark do |cm| %>
-       <%= cm.input :gen %>
-       <%= cm.input :sc%>
-       <%= cm.input :st %>
-       <%= cm.input :obca %>
-       <%= cm.input :obcb %>
+<div class="row">
+  <div class="medium-10 medium-offset-1 columns">
+    <%= simple_form_for @stream do |f| %>
+      <%= f.input :name, label: "Stream Name" %>
+      <%= f.simple_fields_for :required_subjects do |rs| %>
+        <%= rs.input :subject_name, label: "Required Subject/Course name" %>
+        <%= rs.simple_fields_for :castewise_mark do |cm| %>
+          <div class="row">
+             <%= cm.input :gen, label: "Minimum required marks for General Category", wrapper_html: { class: 'medium-6 columns'} %>
+             <%= cm.input :sc, label: "Minimum required marks for SC", wrapper_html: { class: 'medium-6 columns'}%>
+         </div>
+          <div class="row">
+             <%= cm.input :st, label: "Minimum required marks for ST", wrapper_html: { class: 'medium-4 columns'} %>
+             <%= cm.input :obca,label: "Minimum required marks for OBC-A", wrapper_html: { class: 'medium-4 columns'} %>
+             <%= cm.input :obcb, label: "Minimum required marks for OBC-B", wrapper_html: { class: 'medium-4 columns'} %>
+         </div>
+        <% end %>
+      <% end %>
+      <%= f.button :submit %>
     <% end %>
-  <% end %>
-  <%= f.button :submit %>
-<% end %>
+  </div>
+</div>

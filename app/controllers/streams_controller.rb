@@ -6,7 +6,6 @@ class StreamsController < ApplicationController
 
   def new
     @stream = Stream.new
-    @stream.build_castewise_mark
     2.times do
        required_subject = @stream.required_subjects.build
        required_subject.build_castewise_mark
@@ -47,7 +46,6 @@ class StreamsController < ApplicationController
   private
 
   def streams_params
-    params.require(:stream).permit(:name,  castewise_mark_attributes: [:gen, :sc, :st, :obca, :obcb],
-    required_subjects_attributes: [:id, :subject_name, castewise_mark_attributes: [:gen, :sc, :st, :obca, :obcb]])
+    params.require(:stream).permit(:name, required_subjects_attributes: [:id, :subject_name, castewise_mark_attributes: [:gen, :sc, :st, :obca, :obcb]])
   end
 end
