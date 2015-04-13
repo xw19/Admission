@@ -35,4 +35,24 @@ class PersonalTest < ActiveSupport::TestCase
     @personal.date_of_birth = ""
     assert_not @personal.valid?
   end
+
+  test "fathers name should be present" do
+    @personal.fathers_name = ""
+    assert_not @personal.valid?
+  end
+
+  test "fathers name should not be too long" do
+    @personal.fathers_name = "a" * 51
+    assert_not @personal.valid?
+  end
+
+  test "mothers name should be present" do
+    @personal.mothers_name = ""
+    assert_not @personal.valid?
+  end
+
+  test "mothers name should not be too long" do
+    @personal.mothers_name = "a" * 51
+    assert_not @personal.valid?
+  end
 end
