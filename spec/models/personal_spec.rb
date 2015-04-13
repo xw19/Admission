@@ -31,5 +31,24 @@ RSpec.describe Personal, type: :model do
     personal = FactoryGirl.build(:personal, date_of_birth: "")
     expect(personal).not_to be_valid
   end
-  
+
+  it "mothers name should be present" do
+    personal = FactoryGirl.build(:personal, mothers_name: '')
+    expect(personal).not_to be_valid
+  end
+
+  it "mothers name should not be too long" do
+    personal = FactoryGirl.build(:personal, mothers_name: 'a' * 51)
+    expect(personal).not_to be_valid
+  end
+
+  it "fathers name should be present" do
+    personal = FactoryGirl.build(:personal, fathers_name: '')
+    expect(personal).not_to be_valid
+  end
+
+  it "fathers name should not be too long" do
+    personal = FactoryGirl.build(:personal, fathers_name: 'a' * 51)
+    expect(personal).not_to be_valid
+  end
 end
