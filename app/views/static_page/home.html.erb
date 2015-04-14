@@ -1,2 +1,14 @@
-<h1>StaticPage#home</h1>
-<p>Find me in app/views/static_page/home.html.erb</p>
+<div class="row">
+  <div class="medium-10 medium-offset-1 columns">
+    <div class="panel callout radius">
+      <h1>Welcome to collge admission site</h1>
+      <% if !current_candidate.personal %>
+        <a class="button expanded" href="/personals/new"><%= fa_icon "user", text: "Personal Inforamtion" %></a>
+      <% elsif current_candidate.personal && current_candidate.candidate_stream %>
+        <a class="button expanded" href="/candidate_streams/new"><%= fa_icon "graduation-cap", text: "Academic Inforamtion" %></a>
+      <% else %>
+        <a class="button expanded" href="#"><%= fa_icon "print", text: "Print" %></a>
+      <% end %>
+    </div>
+  </div>
+</div>
