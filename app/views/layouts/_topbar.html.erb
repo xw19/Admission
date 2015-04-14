@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">College Admission</a></h1>
+      <h1><a href="#"><%= fa_icon "university", text: "Admission" %></a></h1>
     </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -10,11 +10,11 @@
       <% if candidate_signed_in? %>
         <li class="active"><a href="#"><%= link_to "New Perosnal", new_personal_path %></a></li>
       <% end %>
-        <li class="has-dropdown"> <a href="#">Right Button Dropdown</a>
+        <li class="has-dropdown"> <a href="#"><%= fa_icon "user" %></a>
         <ul class="dropdown">
           <% if candidate_signed_in? %>
-            <li><%= link_to "Edit registration",  edit_candidate_registration_path %></li>
-            <li class="active"><%= link_to "Logout", destroy_candidate_session_path, method: 'delete' %></li>
+            <li><%= link_to fa_icon("cogs", text: "Edit registration"),  edit_candidate_registration_path %></li>
+            <li class="active"><%= link_to fa_icon("sign-out", text: "Sign out"), destroy_candidate_session_path, method: 'delete' %></li>
           <% end %>
         </ul>
       </li>
