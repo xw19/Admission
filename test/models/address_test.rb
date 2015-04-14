@@ -1,8 +1,8 @@
-require 'rails_helper'
+require 'test_helper'
 
-RSpec.describe Address, type: :model do
+class AddressTest < ActiveSupport::TestCase
   def setup
-    @address = addresses(:one)
+    @address = address(:one)
   end
 
   test "it should be valid" do
