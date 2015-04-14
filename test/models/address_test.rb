@@ -79,4 +79,11 @@ class AddressTest < ActiveSupport::TestCase
     end
   end
 
+  test "mobile should have a correct format" do
+    invalid_mobile = [9163, +91-898164897, 123456789, "string"]
+    invalid_mobile.each do |im|
+      @address.mobile = im
+      assert_not @address.valid?, "Invalid mobile"
+    end
+  end
 end

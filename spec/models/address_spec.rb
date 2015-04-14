@@ -63,4 +63,12 @@ RSpec.describe Address, type: :model do
       expect(address).not_to be_valid, "Invalid pin"
     end
   end
+
+  it "mobile should have a correct format" do
+    invalid_mobile = [9163, +91-898164589, 123456789, "string"]
+    invalid_mobile.each do |im|
+      address = build(:address, mobile: im)
+      expect(address).not_to be_valid, "Invalid mobile"
+    end
+  end
 end
