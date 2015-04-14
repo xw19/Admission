@@ -3,11 +3,11 @@
     <div class="panel callout radius">
       <h1>Welcome to collge admission site</h1>
       <% if !current_candidate.personal %>
-        <a class="button expanded" href="/personals/new"><%= fa_icon "user", text: "Personal Inforamtion" %></a>
+        <a class="button expand" href="/personals/new"><%= fa_icon "user", text: "Personal Inforamtion" %></a>
       <% elsif current_candidate.personal && current_candidate.candidate_stream %>
-        <a class="button expanded" href="/candidate_streams/new"><%= fa_icon "graduation-cap", text: "Academic Inforamtion" %></a>
+        <a class="button expand" href="/candidate_streams/new"><%= fa_icon "graduation-cap", text: "Academic Inforamtion" %></a>
       <% else %>
-        <a class="button expanded" href="#"><%= fa_icon "print", text: "Print" %></a>
+        <a class="button expand" href="#"><%= fa_icon "print", text: "Print" %></a>
       <% end %>
     </div>
   </div>
