@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
-  root 'static_page#home'
+  root 'static_page#index'
+  get 'static_page/home'
   get 'static_page/contact'
   get 'static_page/help'
   get 'static_page/about'
