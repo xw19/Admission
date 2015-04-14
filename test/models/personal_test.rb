@@ -55,4 +55,17 @@ class PersonalTest < ActiveSupport::TestCase
     @personal.mothers_name = "a" * 51
     assert_not @personal.valid?
   end
+
+  test "caste should be present" do
+    @personal.caste = ""
+    assert_not @personal.valid?
+  end
+
+  test "caste shouldn't accept invalid castes" do
+    invalid_caste = %w(abcd random 123 awee45)
+    invalid_caste.each do |ic|
+      @personal.caste = ic
+      assert_not @personal.valid?, "Invalid caste"
+    end
+  end
 end

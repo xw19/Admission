@@ -51,4 +51,17 @@ RSpec.describe Personal, type: :model do
     personal = build(:personal, fathers_name: 'a' * 51)
     expect(personal).not_to be_valid
   end
+
+  it "caste should be present" do
+    personal = build(:personal, caste: '')
+    expect(personal).not_to be_valid
+  end
+
+  it "should not accept invalid castes" do
+    invalid_caste = %w(abcd random 123 awee45)
+    invalid_caste.each do |ic|
+      personal = build(:personal, caste: ic)
+      expect(personal).not_to be_valid , "Invalid caste"
+    end
+  end
 end
