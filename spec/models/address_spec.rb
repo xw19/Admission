@@ -55,4 +55,12 @@ RSpec.describe Address, type: :model do
     address = build(:address, country: "a" * 51)
     expect(address).not_to be_valid
   end
+
+  it "pin should have a correct format" do
+    invalid_pins = [1, 12, 123, 1234, 12345, "abcdef"]
+    invalid_pins.each do |ip|
+      address = build(:address, pin: ip)
+      expect(address).not_to be_valid, "Invalid pin"
+    end
+  end
 end

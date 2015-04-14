@@ -66,4 +66,17 @@ class AddressTest < ActiveSupport::TestCase
     assert_not @address.valid?
   end
 
+  test "pin should be present" do
+    @address.pin = ""
+    assert_not @address.valid?
+  end
+
+  test "pin should have a correct format" do
+    invalid_pins = [1, 12, 123, 1234, 12345, "abcdef"]
+    invalid_pins.each do |ip|
+      @address.pin = ip
+      assert_not @address.valid?, "Invalid pin"
+    end
+  end
+
 end
