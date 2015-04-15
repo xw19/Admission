@@ -6,7 +6,8 @@ class CandidateStreamsController < ApplicationController
   end
 
   def create
-    @candidate_stream = current_candidate.build_candidate_stream(candidate_stream_params)
+    @candidate_stream = CandidateStream.new(candidate_stream_params)
+    @candidate_stream.candidate = current_candidate
     if @candidate_stream.save
       flash[:success] = "Your response has been saved"
       redirect_to root_path
