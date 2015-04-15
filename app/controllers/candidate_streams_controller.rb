@@ -1,5 +1,5 @@
 class CandidateStreamsController < ApplicationController
-  before_action :authenticate_candidate!
+  before_action :authenticate_and_check_personal_information
 
   def new
     @candidate_stream = CandidateStream.new
@@ -26,5 +26,9 @@ class CandidateStreamsController < ApplicationController
 
   def candidate_stream_params
     params.require(:candidate_stream).permit(:stream_id, candidate_subjects_attributes: [:id, :candiate_id, :required_subject_id, :marks])
+  end
+
+  def authenticate_and_check_personal_information
+    redirect_to :new_personal unless candidate_signed_in? && current_candidate.personal
   end
 end
