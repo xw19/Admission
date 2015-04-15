@@ -13,8 +13,8 @@
             <li><%= link_to fa_icon("cogs", text: "Edit registration"),  edit_candidate_registration_path %></li>
             <li class="active"><%= link_to fa_icon("sign-out", text: "Sign out"), destroy_candidate_session_path, method: 'delete' %></li>
           <% else %>
-          <li><%= link_to fa_icon("user-plus", text: "Sign up"),  new_candidate_registration_path %></li>
-          <li><%= link_to fa_icon("sign-in", text: "Sign in"), new_candidate_session_path %></li>
+            <li><%= link_to fa_icon("user-plus", text: "Sign up"),  new_candidate_registration_path %></li>
+            <li><%= link_to fa_icon("sign-in", text: "Sign in"), new_candidate_session_path %></li>
           <% end %>
         </ul>
       </li>
