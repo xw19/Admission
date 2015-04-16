@@ -1,4 +1,5 @@
 class QualificationsController < ApplicationController
+  before_action :authenticate_candidate
 
   def index
     @qualifications = Qualification.order('year')
