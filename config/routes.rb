@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'qualifications/new'
-
-  get 'qualifications/edit'
-
-  get 'qualifications/show'
-
   devise_for :admins
   root 'static_page#index'
   get 'static_page/home'
@@ -13,6 +7,7 @@ Rails.application.routes.draw do
   get 'static_page/about'
   post 'candidate_streams/form_fields'
 
+  resources :qualifiactions, except: [:index]
   resources :personals, except: [:index, :destroy]
   resources :streams
   resources :candidate_streams, only: [:new, :create]
