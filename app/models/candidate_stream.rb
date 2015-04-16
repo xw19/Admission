@@ -6,6 +6,7 @@ class CandidateStream < ActiveRecord::Base
 
   validate :check_marks
   validates :stream_id, presence: true, numericality: { only_intger: true }
+  
   def check_marks
     caste = self.candidate.personal.caste.gsub("-", "").downcase
     self.candidate_subjects.each do |cs|
