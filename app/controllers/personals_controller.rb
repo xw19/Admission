@@ -14,6 +14,7 @@ class PersonalsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = "Some error occured"
+      @personal.addresses.build
       render 'new'
     end
   end

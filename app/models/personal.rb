@@ -9,4 +9,5 @@ class Personal < ActiveRecord::Base
   validates :fathers_name, presence: true, length: { maximum: 50 }
   validates :mothers_name, presence: true, length: { maximum: 50 }
   validates :caste, presence: true, inclusion: { in: %w(GEN SC ST OBC-A OBC-B)}
+  validates_presence_of :addresses
 end
