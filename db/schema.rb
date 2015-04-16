@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413180329) do
+ActiveRecord::Schema.define(version: 20150416074952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,20 @@ ActiveRecord::Schema.define(version: 20150413180329) do
 
   add_index "personals", ["candidate_id"], name: "index_personals_on_candidate_id", using: :btree
 
+  create_table "qualifications", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "certificate"
+    t.integer  "year"
+    t.string   "issuing_authority"
+    t.string   "points"
+    t.integer  "candidate_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "qualifications", ["candidate_id"], name: "index_qualifications_on_candidate_id", using: :btree
+
   create_table "required_subjects", force: :cascade do |t|
     t.string   "subject_name"
     t.integer  "stream_id"
@@ -146,5 +160,6 @@ ActiveRecord::Schema.define(version: 20150413180329) do
   add_foreign_key "candidate_subjects", "required_subjects"
   add_foreign_key "castewise_marks", "required_subjects"
   add_foreign_key "personals", "candidates"
+  add_foreign_key "qualifications", "candidates"
   add_foreign_key "required_subjects", "streams"
 end

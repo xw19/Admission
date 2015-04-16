@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'static_page/about'
   post 'candidate_streams/form_fields'
 
-  resources :qualifiactions, except: [:index]
+  resources :qualifiactions, except: [:show]
   resources :personals, except: [:index, :destroy]
   resources :streams
   resources :candidate_streams, only: [:new, :create]
