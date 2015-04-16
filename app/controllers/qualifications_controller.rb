@@ -2,6 +2,7 @@ class QualificationsController < ApplicationController
 
   def index
     @qualifications = Qualification.order('year')
+  end
 
   def new
     @qualification = Qualification.new
@@ -50,4 +51,5 @@ class QualificationsController < ApplicationController
   def qualification_params
     params.require(:qualification).permit(:name, :description, :certificate, :year, :issuing_authority, :points)
   end
+
 end
