@@ -10,6 +10,11 @@
           <tr><td>Issued by: </td><td><%= qualification.issuing_authority %></td></tr>
           <tr><td>Points: </td><td><%= qualification.points %></td></tr>
           <tr><td>Certificate Link: </td><td><%= link_to "download", qualification.certificate.url %></td></tr>
+          <tr>
+            <td colspan="2">
+              <%= link_to "Edit", edit_qualification_path(qualification) , class: 'button small' %>
+              <%= link_to "Destroy", qualification_path(qualification) , method: :delete, confirm: 'Are you sure to delete ?', class: 'button small alert' %>
+            </td>
         </table>
       </div>
     <% end %>
