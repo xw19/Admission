@@ -1,9 +1,9 @@
 <div class="row">
   <div class="medium-10 medium-offset-1 columns">
-    <header><h1>Qualifications</h1></header>
+    <header><h1>Qualifications</h1><%= link_to "Add qualification", new_qualification_path, class: 'button small success' %></header>
     <% @qualifications.each do |qualification| %>
       <div class="row">
-        <table class="medium-8 medium-offset-2 columns">
+        <table class="medium-10 medium-offset-1 columns">
           <tr><td>Name: </td><td><%= qualification.name %></td></tr>
           <tr><td>Description: </td><td><%= qualification.description %></td></tr>
           <tr><td>Year: </td><td><%= qualification.year %></td></tr>

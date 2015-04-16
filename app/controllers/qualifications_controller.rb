@@ -1,8 +1,8 @@
 class QualificationsController < ApplicationController
-  before_action :authenticate_candidate
+  before_action :authenticate_candidate!
 
   def index
-    @qualifications = Qualification.order('year')
+    @qualifications = current_candidate.qualifications.order('year')
   end
 
   def new

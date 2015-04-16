@@ -7,5 +7,5 @@ class Candidate < ActiveRecord::Base
   has_one :personal, dependent: :destroy
   has_one :candidate_stream, dependent: :destroy
   has_many :candidate_subjects, dependent: :destroy
-  has_many :qualification, dependent: :destroy
+  has_many :qualifications, dependent: :destroy
 end
