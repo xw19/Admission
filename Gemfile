@@ -55,3 +55,7 @@ gem 'foundation-rails'
 gem "font-awesome-rails"
 # simple form
 gem 'simple_form'
+# uploading files
+gem 'carrierwave'
+
+gem 'mini_magick'
