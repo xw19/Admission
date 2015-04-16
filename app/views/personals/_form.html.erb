@@ -11,7 +11,7 @@
       <%= f.input :mothers_name, wrapper_html: { class: 'medium-6 columns'} %>
     </div>
     <div class="row">
-      <%= f.input :date_of_birth, as: :string, input_html: { class: "fdatepicker"}, wrapper_html: { class: 'medium-4 columns'} %>
+      <%= f.input :date_of_birth, as: :string, input_html: { class: "fdatepicker"}, wrapper_html: { class: 'medium-4 columns'}, data: { "date-format" => "DD-MM-YYYY" } %>
       <%= f.input :gender, collection: %w(Male Female Others), wrapper_html: { class: 'medium-4 columns'} %>
       <%= f.input :caste, collection: %w(GEN SC ST OBC-A OBC-B), wrapper_html: { class: 'medium-4 columns'} %>
     </div>
@@ -35,6 +35,9 @@
         <%= ad.input :mobile, wrapper_html: { class: 'medium-6 columns'} %>
       </div>
     <% end %>
+    <div class="row">
+      <%= f.input :photo, as: :file, wrapper_html: { class: 'medium-12 columns' } %>
+    </div>
     <%= f.button :submit %>
     <% end %>
   </div>

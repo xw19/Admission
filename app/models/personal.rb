@@ -9,5 +9,8 @@ class Personal < ActiveRecord::Base
   validates :fathers_name, presence: true, length: { maximum: 50 }
   validates :mothers_name, presence: true, length: { maximum: 50 }
   validates :caste, presence: true, inclusion: { in: %w(GEN SC ST OBC-A OBC-B)}
+  validates :photo, presence: true
   validates_presence_of :addresses
+
+  mount_uploader :photo, PhotoUploader
 end
