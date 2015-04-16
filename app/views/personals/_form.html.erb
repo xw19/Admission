@@ -18,8 +18,8 @@
     <%= f.simple_fields_for :addresses do |ad| %>
       <h6>Address <%= ad.options[:child_index] + 1 %></h6>
       <div class="row">
-        <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'} %>
-        <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'} %>
+        <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 1" %>
+        <%= ad.input :line2, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 2" %>
       </div>
       <div class="row">
         <%= ad.input :city_village, wrapper_html: { class: 'medium-4 columns'} %>
