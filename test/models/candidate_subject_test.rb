@@ -8,4 +8,9 @@ class CandidateSubjectTest < ActiveSupport::TestCase
     @candidate_subject.marks = ""
     assert_not @candidate_subject.valid?
   end
+
+  test "marks should not be greater than 100" do
+    @candidate_subject.marks = 101
+    assert_not @candidate_subject.valid?
+  end
 end
