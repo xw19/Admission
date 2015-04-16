@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="medium-10 medium-offset-1 columns">
+    <header><h1>Qualifications</h1></header>
+    <% @qualifications.each do |qualification| %>
+      <div class="row">
+        <table class="medium-8 medium-offset-2 columns">
+          <tr><td>Name: </td><td><%= qualification.name %></td></tr>
+          <tr><td>Description: </td><td><%= qualification.description %></td></tr>
+          <tr><td>Year: </td><td><%= qualification.year %></td></tr>
+          <tr><td>Issued by: </td><td><%= qualification.issuing_authority %></td></tr>
+          <tr><td>Points: </td><td><%= qualification.points %></td></tr>
+          <tr><td>Certificate Link: </td><td><%= link_to "download", qualification.certificate.url %></td></tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
