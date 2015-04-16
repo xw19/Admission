@@ -21,6 +21,7 @@ class QualificationsController < ApplicationController
   end
 
   def edit
+    @qualification = Qualification.find(params[:id])
   end
 
   def update
