@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="medium-10 medium-offset-1 columns">
+  <div class="medium-12 columns">
     <div class="panel callout radius">
       <h1>Welcome to collge admission site</h1>
       <% if !current_candidate.personal %>
@@ -15,7 +15,7 @@
     <div class="row">
       <% if current_candidate.personal %>
       <div class="medium-6 columns">
-        <table>
+        <table style="width:100%;">
           <tr>
             <th colspan="2">
               Personal Information
@@ -48,6 +48,18 @@
           <tr>
             <td>Fathers name: </td>
             <td><%= current_candidate.personal.fathers_name %></td>
+          </tr>
+        </table>
+      </div>
+      <% end %>
+      <% if current_candidate.candidate_stream %>
+      <div class="medium-6 columns">
+        <table style="width:100%;">
+          <tr>
+              <th colspan="2">Stream Applied</th>
+          </tr>
+          <tr>
+            <td>Stream Name</td><td><%= current_candidate.candidate_stream.stream.name %></td>
           </tr>
         </table>
       </div>
