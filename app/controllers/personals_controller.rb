@@ -11,7 +11,7 @@ class PersonalsController < ApplicationController
     @personal.candidate = current_candidate
     if @personal.save
       flash[:success] = "Personal Created"
-      redirect_to root_path
+      redirect_to static_page_home_path
     else
       flash[:danger] = "Some error occured"
       @personal.addresses.build  unless @personal.addresses.any?
@@ -27,7 +27,7 @@ class PersonalsController < ApplicationController
     @personal = current_candidate.update_personal(personal_params)
     if @personal.save
       flash[:success] = "Personal Updated"
-      redirect_to root_path
+      redirect_to static_page_home_path
     else
       flash[:danger] = "Some error occured"
       render 'new'
