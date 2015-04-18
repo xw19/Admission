@@ -12,58 +12,5 @@
         <a class="button expand" href="#"><%= fa_icon "print", text: "Print" %></a>
       <% end %>
     </div>
-    <div class="row">
-      <% if current_candidate.personal %>
-      <div class="medium-6 columns">
-        <table style="width:100%;">
-          <tr>
-            <th colspan="2">
-              Personal Information
-            </th>
-          </tr>
-          <tr>
-            <td>First Name: </td>
-            <td><%= current_candidate.personal.first_name %></td>
-          </tr>
-          <tr>
-            <td>Middle Name: </td>
-            <td><%= current_candidate.personal.middle_name %></td>
-          </tr>
-          <tr>
-            <td>Last Name: </td>
-            <td><%= current_candidate.personal.last_name %></td>
-          </tr>
-          <tr>
-            <td>Gender: </td>
-            <td><%= current_candidate.personal.gender %></td>
-          </tr>
-          <tr>
-            <td>Date of Birth: </td>
-            <td><%= current_candidate.personal.date_of_birth %></td>
-          </tr>
-          <tr>
-            <td>Mothers name: </td>
-            <td><%= current_candidate.personal.mothers_name %></td>
-          </tr>
-          <tr>
-            <td>Fathers name: </td>
-            <td><%= current_candidate.personal.fathers_name %></td>
-          </tr>
-        </table>
-      </div>
-      <% end %>
-      <% if current_candidate.candidate_stream %>
-      <div class="medium-6 columns">
-        <table style="width:100%;">
-          <tr>
-              <th colspan="2">Stream Applied</th>
-          </tr>
-          <tr>
-            <td>Stream Name</td><td><%= current_candidate.candidate_stream.stream.name %></td>
-          </tr>
-        </table>
-      </div>
-      <% end %>
-    </div>
   </div>
 </div>
