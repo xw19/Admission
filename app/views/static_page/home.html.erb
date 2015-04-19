@@ -4,9 +4,27 @@
     <div class="panel callout radius home-panel">
       <h1 class="home-h1">Welcome to college Admission Site</h1>
       <div class="row">
-        <div class="medium-4 medium-offset-4 columns">
-          <%= link_to  fa_icon("user", text: "Personal Inforamtion"), new_personal_path, class: 'button expand' %></a>
+        <div class="medium-4 columns">
+          <% if current_candidate.personal %>
+            <%= link_to  fa_icon("check", text: "Personal Inforamtion"), edit_personal_path(current_candidate.personal), class: 'button expand disabled' %>
+          <% else %>
+            <%= link_to  fa_icon("user", text: "Personal Inforamtion"), new_personal_path, class: 'button expand success' %>
+          <% end %>
       </div>
+      <div class="medium-4 columns">
+        <% if current_candidate.qualifications.any? %>
+          <%= link_to  fa_icon("user", text: "Academic Qualifications"),  qualifications_path, class: 'button expand disabled' %>
+        <% else %>
+          <%= link_to  fa_icon("user", text: "Academic Qualifications"),   new_qualification_path, class: 'button expand success' %>
+        <% end %>
+      </div>
+      <div class="medium-4 columns">
+      <% unless current_candidate.candidate_stream %>
+        <%= link_to  fa_icon("graduation-cap", text: "Choose Stream"),  new_candidate_stream_path, class: 'button expand alert' %>
+      <% else %>
+        <a href="#" class="button expand disabled"><%= fa_icon "check", text: current_candidate.candidate_stream.stream.name %></a>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>
