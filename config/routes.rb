@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   root 'static_page#index'
   get 'static_page/home'
-  get 'static_page/contact'
+  get 'contact', to: 'static_page#contact'
   get 'help', to: 'static_page#help'
   get 'static_page/about'
   post 'candidate_streams/form_fields'
