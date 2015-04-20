@@ -1,4 +1,5 @@
 class StreamsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @streams = Stream.order('name')
