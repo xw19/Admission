@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'static_page/home'
   get 'contact', to: 'static_page#contact'
   get 'help', to: 'static_page#help'
-  get 'static_page/about'
+  get 'about', to: 'static_page/about'
   post 'candidate_streams/form_fields'
 
   resources :qualifications, except: [:show]
