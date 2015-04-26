@@ -1,7 +1,39 @@
-<table>
-  <% @streams.each do |stream| %>
-    <tr>
-      <td><%= stream.name %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="medium-12 columns">
+    <h1> All streams</h1>
+    <table class="medium-12 columns">
+      <thead >
+        <tr>
+          <th> Stream Name </th>
+        </tr>
+      </thead>
+      <% @streams.each do |stream| %>
+        <tr>
+          <td><strong><%= stream.name %></strong></td>
+        </tr>
+        <% if stream.required_subjects.any? %>
+          <tr>
+            <td></td>
+            <td>Required</td>
+            <td>GEN</td>
+            <td>SC</td>
+            <td>ST</td>
+            <td>OBC-A</td>
+            <td>OBC-B</td>
+          </tr>
+          <% stream.required_subjects.each do |rs| %>
+            <tr>
+              <td> </td>
+              <td><%= rs.subject_name %></td>
+              <td><%= rs.castewise_mark.gen %></td>
+              <td><%= rs.castewise_mark.sc %></td>
+              <td><%= rs.castewise_mark.st %></td>
+              <td><%= rs.castewise_mark.obca %></td>
+              <td><%= rs.castewise_mark.obcb %></td>
+            </tr>
+          <% end %>
+        <% end  %>
+      <% end %>
+    </table>
+  </div>
+</div>
