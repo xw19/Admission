@@ -1,5 +1,6 @@
 <div class="row">
   <div class="medium-10 medium-offset-1 columns">
+    <h1>New Stream</h1>
     <%= simple_form_for @stream do |f| %>
       <%= f.input :name, label: "Stream Name" %>
       <%= f.simple_fields_for :required_subjects do |rs| %>
