@@ -1,5 +1,5 @@
 class StreamsController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:index]
 
   def index
     @streams = Stream.order('name')
