@@ -3,7 +3,7 @@ class PersonalsController < ApplicationController
 
   def new
     @personal = Personal.new
-    2.times { @personal.addresses.build }
+    # 2.times { @personal.addresses.build }
   end
 
   def create

@@ -13,8 +13,13 @@
   <%= f.input :gender, collection: %w(Male Female Others), wrapper_html: { class: 'medium-4 columns'} %>
   <%= f.input :caste, collection: %w(GEN SC ST OBC-A OBC-B), wrapper_html: { class: 'medium-4 columns'} %>
 </div>
-<%= f.simple_fields_for :addresses do |ad| %>
-  <h6>Address <%= ad.options[:child_index] + 1 %></h6>
+<%= f.simple_fields_for :addresses, @personal.addresses.build do |ad| %>
+  <h6>Address Present</h6>
+  <div class="row">
+    <div class="medium-6 columns">
+      <input type="checkbox" id="permanent_address" checked="checked"> Present address same as permanent address
+    </div>
+  </div>
   <div class="row">
     <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 1" %>
     <%= ad.input :line2, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 2" %>
@@ -33,6 +38,28 @@
     <%= ad.input :mobile, wrapper_html: { class: 'medium-6 columns'} %>
   </div>
 <% end %>
+<div class="address-permanent">
+  <%= f.simple_fields_for :addresses, @personal.addresses.build do |ad| %>
+    <h6>Address Permanent</h6>
+    <div class="row">
+      <%= ad.input :line1, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 1" %>
+      <%= ad.input :line2, wrapper_html: { class: 'medium-6 columns'}, label: "Address Line 2" %>
+    </div>
+    <div class="row">
+      <%= ad.input :city_village, wrapper_html: { class: 'medium-4 columns'}, label: "City/Village" %>
+      <%= ad.input :district, wrapper_html: { class: 'medium-4 columns'} %>
+      <%= ad.input :state, wrapper_html: { class: 'medium-4 columns'} %>
+    </div>
+    <div class="row">
+      <%= ad.input :country, as: :string, wrapper_html: { class: 'medium-6 columns'} %>
+      <%= ad.input :pin, wrapper_html: { class: 'medium-6 columns'} %>
+    </div>
+    <div class="row">
+      <%= ad.input :phone, wrapper_html: { class: 'medium-6 columns'} %>
+      <%= ad.input :mobile, wrapper_html: { class: 'medium-6 columns'} %>
+    </div>
+  <% end %>
+</div>
 <div class="row">
   <%= f.input :photo, as: :file, wrapper_html: { class: 'medium-12 columns' } %>
 </div>
