@@ -7,6 +7,7 @@
   </ul>
   <section class="top-bar-section"> <!-- Right Nav Section -->
     <ul class="right">
+        <li><%= link_to "Streams", streams_path %></li>
         <li class="has-dropdown"> <a href="#"><%= fa_icon "user" %></a>
         <ul class="dropdown">
           <% if candidate_signed_in? %>
